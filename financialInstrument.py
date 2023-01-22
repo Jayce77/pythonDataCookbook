@@ -8,6 +8,7 @@ plt.style.use('seaborn')
 
 class FinancialInstrumentBase:
     def __init__(self, ticker, start, end):
+        self.data = None
         self._ticker = ticker
         self.start = start
         self.end = end
@@ -42,6 +43,13 @@ class FinancialInstrumentBase:
             self._ticker = ticker
             self.get_data()
             self.log_returns()
+
+    def get_ticker(self):
+        '''
+        Displays the current ticker
+        :return: ticker
+        '''
+        return self._ticker
 
 
 class RiskReturn(FinancialInstrumentBase):
